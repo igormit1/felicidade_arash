@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    color: rgb(240, 111, 240);
+
+}
+
+header {
+    background-color: rgb(114, 27, 114); /* Define a cor de fundo como vermelho */
+    padding: 5px; 
+    text-align: center; 
+    border-bottom: 1px solid white;
+}
+
+h2 {
+    font-size: 3em;
+    color: white;
+}

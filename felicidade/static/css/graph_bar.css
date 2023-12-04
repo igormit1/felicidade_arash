@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+
+}
+
+header {
+    background-color: rgb(114, 27, 114); /* Define a cor de fundo como vermelho */
+    padding: 10px; 
+    text-align: center; 
+    border-bottom: 2px solid white;
+}
+
+h1 {
+    font-size: 3em;
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+
+}
+
+#mensagem {
+    margin-top: 30px;
+    font-size: 40px;
+    text-align: center; 
+}
+
+/* Adicione estilos CSS diretamente ou no arquivo graph_bar.css */
+#chart-container {
+    display: flex;
+    /* Alteração para exibir as barras na horizontal */
+}
+
+        .bar {
+            margin: 0 30px;
+            background-color: #3498db; /* Cor de fundo azul, pode ser ajustada conforme necessário */
+        }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas</title>
+    <link rel="shortcut icon" type="x-icon" href="../static/image/iconceub.png" />
+    <link rel="stylesheet" href="../static/css/graph_bar.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+</head>
+<body>
+    <header>
+        <h1>Estatísticas</h1>
+        <button onclick="mostrarGrafico('Pessoa')">Pessoa</button>
+        <button onclick="mostrarGrafico('Data')">Data</button>
+        <button onclick="mostrarGrafico('Lugar')">Lugar</button>
+    </header>
+
+    <div id="mensagem"></div>
+    <div id="chart-container"></div>
+
+    <script>
+        const data = {
+            Pessoa: [5, 3, 5, 8, 4, 5, 6, 7],
+            Data: [2, 4, 6, 8, 1],
+            Lugar: [3, 6, 2, 4, 8, 33, 44, 3, 53, 23, 23, 11, 22],
+        };
+
+        let currentCategoria = 'Pessoa';
+        let meuGrafico; // Variável para armazenar a instância do gráfico Chart.js
+
+        function createChart() {
+            const chartContainer = document.getElementById('chart-container');
+            chartContainer.innerHTML = '';
+
+            const canvas = document.createElement('canvas');
+            canvas.id = 'meuGrafico';
+            chartContainer.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+
+            meuGrafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Array.from({ length: data[currentCategoria].length }, (_, i) => `Label ${i + 1}`),
+                    datasets: [{
+                        label: `Número de Ocorrências por ${currentCategoria}`,
+                        data: data[currentCategoria],
+                        backgroundColor: 'steelblue',
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function mostrarGrafico(categoria) {
+           
+            currentCategoria = categoria;
+
+            if (meuGrafico) {
+                meuGrafico.destroy(); // Destruir a instância anterior do gráfico para criar uma nova
+            }
+
+            createChart();
+        }
+        createChart();
+    </script>
+</body>
+</html>
